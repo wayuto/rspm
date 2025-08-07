@@ -1,12 +1,14 @@
 mod kill;
 mod pause;
 mod show;
+mod top;
 use clap::{Parser, Subcommand};
 use kill::{kill_process_by_name, kill_process_by_pid};
 use pause::{
     pause_process_by_name, pause_process_by_pid, resume_process_by_name, resume_process_by_pid,
 };
 use show::show_processes;
+use top::top;
 
 #[derive(Parser)]
 #[command(version, about)]
@@ -31,6 +33,8 @@ enum Commands {
     Rbp { pid: u32 },
     #[command(about = "Resume a process by its name")]
     Rbn { name: String },
+    #[command(about = "Show Processes like top")]
+    Top,
 }
 
 fn main() -> () {
@@ -56,6 +60,9 @@ fn main() -> () {
         }
         Commands::Rbn { name } => {
             resume_process_by_name(name);
+        }
+        Commands::Top => {
+            let _ = top();
         }
     }
 }

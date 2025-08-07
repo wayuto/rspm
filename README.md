@@ -10,7 +10,7 @@ cargo build
 
 ## ***Usage***
 ```bash
-rspm <COMMAND>
+Usage: rspm <COMMAND>
 
 Commands:
   proc  Show all the processes of current oprating system
@@ -20,6 +20,7 @@ Commands:
   pbn   Pause a process by its name
   rbp   Resume a process by its PID
   rbn   Resume a process by its name
+  top   Show Processes like top
   help  Print this message or the help of the given subcommand(s)
 
 Options:
